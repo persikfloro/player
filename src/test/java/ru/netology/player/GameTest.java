@@ -45,6 +45,15 @@ public class GameTest {
     }
 
     @Test
+    public void gameBetweenRegisteredAndUnregisteredPlayersSecond() {
+        regPlayer.register(player5);
+
+        assertThrows(NotRegisteredException.class, () -> {
+            regPlayer.round(player5.getName(), player1.getName());
+        });
+    }
+
+    @Test
     public void gameDraw() {
         regPlayer.register(player3);
         regPlayer.register(player6);
